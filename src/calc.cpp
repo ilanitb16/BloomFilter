@@ -1,3 +1,6 @@
-int sum(int a, int b){
-return a-b;
+#include "BitsArray.cpp"
+
+int createArray(int size){
+    BitsArray bitsArray(size);
+    return bitsArray.getArraySize();
 }

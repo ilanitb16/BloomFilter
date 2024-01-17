@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project("facebook-iso") # Replace “MyCalc” with your repo name
-
+project("facebook-iso")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -16,7 +15,9 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 set(SOURCE_FILES
-    src/calc.cpp # this is where the code we want to test
+    src/include/BitsArray.h
+    src/BitsArray.cpp # this is where the code we want to test
+    src/calc.cpp 
 )
 
 set(TEST_FILES

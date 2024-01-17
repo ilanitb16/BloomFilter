@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-#include "../src/calc.cpp" // here we include the code to be tested
-TEST(SumTest, BasicTest) {
-EXPECT_EQ(sum(1,2), 3);
+#include <../src/calc.cpp>
+TEST(BitsArray, BasicTest) {
+EXPECT_EQ(createArray(8), 8);
+
 }
