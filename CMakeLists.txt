@@ -17,12 +17,12 @@ enable_testing()
 set(SOURCE_FILES
     src/include/BitsArray.h
     src/BitsArray.cpp # this is where the code we want to test
-    src/calc.cpp 
+    src/Main.cpp 
 )
 
 set(TEST_FILES
     tests/test_main.cpp # this is the main for tests
-    tests/calc_test.cpp # this file contain the tests
+    tests/BitsArray_test.cpp # this file contain the tests
 )
 add_executable(CalcTests ${TEST_FILES})
 

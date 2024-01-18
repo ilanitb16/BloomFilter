@@ -5,8 +5,10 @@ class BitsArray {
 public:
     BitsArray(int size);
     int getArraySize();
+    int* getArray();
 private:
 int size;
+int* array;
 };
 
 #endif
