@@ -1,4 +1,6 @@
 #include "include/BitsArray.h"
+#include <string.h>
+
 
 BitsArray::BitsArray(int size){
     this->size = size;
@@ -16,4 +18,11 @@ int BitsArray::getArraySize(){
 
 int* BitsArray::getArray(){
     return this->array;
+}
+
+bool addUrlToArray(std::string url){
+    std::size_t h1 = std::hash<std::string>{}(url);
+
+    std::cout << h1;
+    return true;
 }
