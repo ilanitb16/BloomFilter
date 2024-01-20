@@ -22,7 +22,7 @@ jobs:
       run: cmake -B build
     - name: Autotools configure
       run: |
-        ./autogen.sh
+        autoreconf --force --install
         ./configure
     - name: make
       run: make
