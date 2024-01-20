@@ -21,9 +21,6 @@ jobs:
     - name: CMake
       run: cmake -B build
     - name: Autotools configure
-      run: |
-        autoreconf --force --install
-        ./configure
     - name: make
       run: make
     - name: make check
