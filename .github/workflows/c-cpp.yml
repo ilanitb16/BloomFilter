@@ -17,7 +17,8 @@ jobs:
        sudo apt-get update
        sudo apt-get install cmake g++ libgtest-dev make libssl-dev
        sudo apt-get install redis valgrind
-    - name: Gtest
+    - uses: actions/checkout@v3
+    - name: Gtest set
       run: |
         git submodule update --init --recursive
         cd path/to/gtest
@@ -27,7 +28,6 @@ jobs:
         make
         sudo make install
         cd ../../
-    - uses: actions/checkout@v3
     - name: CMake
       run: cmake -B build
     - name: configure
