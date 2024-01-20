@@ -12,7 +12,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: setup cpp
+      run: |
+       sudo apt-get update
+       sudo apt-get install cmake g++ libgtest-dev make libssl-dev
+       sudo apt-get install redis valgrind
+    - name: Gtest
+      run: |
+        git submodule update --init --recursive
+        cd path/to/gtest
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+        cd ../../
     - uses: actions/checkout@v3
+    - name: CMake
+      run: cmake -B build
     - name: configure
       run: ./configure
     - name: make
