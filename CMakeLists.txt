@@ -15,8 +15,12 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 set(SOURCE_FILES
-    src/include/BitsArray.h
-    src/BitsArray.cpp # this is where the code we want to test
+    src/BitsArray.cpp
+    src/InputOutput.cpp
+    src/HashFunctions.cpp
+    src/BitsArray.h
+    src/InputOutput.h
+    src/HashFunctions.h
     src/Main.cpp 
 )
 
