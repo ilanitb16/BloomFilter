@@ -42,3 +42,59 @@ TEST(BitsArrayTest, GetArraySizeTest0) {
     // The expected size is 8
     EXPECT_EQ(size, 0);
 }
+
+
+
+
+
+
+
+//InputOutput tests
+
+// Test Case A: Testing isDigit function with a digit character
+TEST(InputOutputTest, IsDigitTest1) {
+    InputOutput inputOutput;
+    char digitChar = '5';
+
+    // Check if the character '5' is a digit
+    bool isDigit = inputOutput.isDigit(digitChar);
+
+    // Expected output: '5' is a digit
+    EXPECT_TRUE(isDigit);
+}
+
+// Test Case B: Testing isDigit function with a non-digit character
+TEST(InputOutputTest, IsDigitTest2) {
+    InputOutput inputOutput;
+    char nonDigitChar = 'A';
+
+    // Check if the character 'A' is a digit
+    bool isDigit = inputOutput.isDigit(nonDigitChar);
+
+    // Expected output: 'A' is not a digit
+    EXPECT_FALSE(isDigit);
+}
+
+// Test Case C: Testing containsNonNumeric function with a string containing non-numeric characters
+TEST(InputOutputTest, ContainsNonNumericTest1) {
+    InputOutput inputOutput;
+    std::string stringWithNonNumeric = "Hello012";
+
+    // Check if the string contains non-numeric characters
+    bool containsNonNumeric = inputOutput.containsNonNumeric(stringWithNonNumeric);
+
+    // Expected output: The string contains non-numeric characters
+    EXPECT_TRUE(containsNonNumeric);
+}
+
+// Test Case D: Testing containsNonNumeric function with a string containing only numeric characters and spaces
+TEST(InputOutputTest, ContainsNonNumericTest2) {
+    InputOutput inputOutput;
+    std::string stringWithNumericAndSpaces = "123 456";
+
+    // Check if the string contains non-numeric characters
+    bool containsNonNumeric = inputOutput.containsNonNumeric(stringWithNumericAndSpaces);
+
+    // Expected output: The string contains only numeric characters and spaces
+    EXPECT_FALSE(containsNonNumeric);
+}
