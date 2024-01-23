@@ -98,3 +98,100 @@ TEST(InputOutputTest, ContainsNonNumericTest2) {
     // Expected output: The string contains only numeric characters and spaces
     EXPECT_FALSE(containsNonNumeric);
 }
+
+
+// Test Case D: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST1) {
+    InputOutput inputOutput;
+    std::string setting = "8 1";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_FALSE(validSetting);
+}
+
+// Test Case E: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST2) {
+    InputOutput inputOutput;
+    std::string setting = "8 2";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_FALSE(validSetting);
+}
+
+// Test Case F: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST3) {
+    InputOutput inputOutput;
+    std::string setting = "8 1 2";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_FALSE(validSetting);
+}
+
+// Test Case G: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST4) {
+    InputOutput inputOutput;
+    std::string setting = "8 1 2 2 2 1 1";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_FALSE(validSetting);
+}
+
+// Test Case H: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST5) {
+    InputOutput inputOutput;
+    std::string setting = "8 1 1 1 1 1 2";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_FALSE(validSetting);
+}
+
+// Test Case I: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST6) {
+    InputOutput inputOutput;
+    std::string setting = "8 1 0";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_TRUE(validSetting);
+}
+
+// Test Case J: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST7) {
+    InputOutput inputOutput;
+    std::string setting = "8";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_TRUE(validSetting);
+}
+
+// Test Case K: Testing if the first input that contain only number for sure is valid
+TEST(InputOutputTest, invalidInputTEST8) {
+    InputOutput inputOutput;
+    std::string setting = "8 1 5";
+
+    // Check if the string contains numbers diffrent from 1 and 2 after thr first number
+    bool validSetting = inputOutput.invalidInput(setting);
+
+    // Expected output: The string is valid
+    EXPECT_TRUE(validSetting);
+}
