@@ -295,6 +295,11 @@ TEST(InputOutputTest, GetCommandTest1) {
 }
 
 
+
+
+
+
+
 //HashFunctions
 
 // Constructor Tests
@@ -444,6 +449,7 @@ TEST(HashFunctionsTest, Hash1FunctionTest3) {
 
 
 
+
 // hash2Function Tests
 TEST(HashFunctionsTest, Hash2FunctionTest1) {
     // Test hash1Function with hash1 set to true
@@ -517,7 +523,7 @@ TEST(HashFunctionsTest, mixArray2) {
     EXPECT_FALSE(check);
 }
 
-TEST(HashFunctionsTest, mixArray3kjjihug) {
+TEST(HashFunctionsTest, mixArray3) {
     // Test hash1Function with hash1 set to true
     int arraySize = 8;
     std::string input = "www.example.com11";
@@ -535,7 +541,7 @@ TEST(HashFunctionsTest, mixArray3kjjihug) {
 }
 
 // Test if the URL that has been added can be found in the array
-TEST(BitsArrayTest, SearchURLInBitArrayTest000) {
+TEST(BitsArrayTest, SearchURLInBitArrayTest) {
     // Create a BitsArray with size 32
     BitsArray bitsArray(32);
 
@@ -550,4 +556,86 @@ TEST(BitsArrayTest, SearchURLInBitArrayTest000) {
 
     // Expected output: The URL should be blacklisted
     EXPECT_TRUE(blackListed);
+}
+
+
+
+// Test Case I: Testing printMassege function with blacklisted and true false positive
+TEST(InputOutputTest, PrintMassegeTest1) {
+    InputOutput inputOutput;
+    bool blacklist = true;
+    bool falsePositive = true;
+
+    // Redirect std::cout to a stringstream
+    std::stringstream outputStream;
+    std::streambuf* originalCout = std::cout.rdbuf(outputStream.rdbuf());
+
+    // Call printMassege with blacklisted=true and falsePositive=true
+    inputOutput.printMassege(blacklist, falsePositive);
+
+    // Restore std::cout to its original state
+    std::cout.rdbuf(originalCout);
+
+    // Expected output: "true true" to the stringstream
+    EXPECT_EQ(outputStream.str(), "true true\n");
+}
+
+// Test Case II: Testing printMassege function with blacklisted and true false positive
+TEST(InputOutputTest, PrintMassegeTest2) {
+    InputOutput inputOutput;
+    bool blacklist = true;
+    bool falsePositive = false;
+
+    // Redirect std::cout to a stringstream
+    std::stringstream outputStream;
+    std::streambuf* originalCout = std::cout.rdbuf(outputStream.rdbuf());
+
+    // Call printMassege with blacklisted=true and falsePositive=false
+    inputOutput.printMassege(blacklist, falsePositive);
+
+    // Restore std::cout to its original state
+    std::cout.rdbuf(originalCout);
+
+    // Expected output: "true false" to the stringstream
+    EXPECT_EQ(outputStream.str(), "true false\n");
+}
+
+// Test Case III: Testing printMassege function with non blacklisted 
+TEST(InputOutputTest, PrintMassegeTest3) {
+    InputOutput inputOutput;
+    bool blacklist = false;
+    bool falsePositive = false;
+
+    // Redirect std::cout to a stringstream
+    std::stringstream outputStream;
+    std::streambuf* originalCout = std::cout.rdbuf(outputStream.rdbuf());
+
+    // Call printMassege with blacklisted=false and falsePositive=false
+    inputOutput.printMassege(blacklist, falsePositive);
+
+    // Restore std::cout to its original state
+    std::cout.rdbuf(originalCout);
+
+    // Expected output: "false" to the stringstream
+    EXPECT_EQ(outputStream.str(), "false\n");
+}
+
+// Test Case IV: Testing printMassege function with non blacklisted, this case can not happend
+TEST(InputOutputTest, PrintMassegeTest4) {
+    InputOutput inputOutput;
+    bool blacklist = false;
+    bool falsePositive = true;
+
+    // Redirect std::cout to a stringstream
+    std::stringstream outputStream;
+    std::streambuf* originalCout = std::cout.rdbuf(outputStream.rdbuf());
+
+    // Call printMassege with blacklisted=false and falsePositive=true
+    inputOutput.printMassege(blacklist, falsePositive);
+
+    // Restore std::cout to its original state
+    std::cout.rdbuf(originalCout);
+
+    // Expected output: "false" to the stringstream
+    EXPECT_EQ(outputStream.str(), "false\n");
 }
