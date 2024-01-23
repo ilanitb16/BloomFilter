@@ -31,7 +31,7 @@ TEST(BitsArrayTest, GetArraySizeTest) {
     int size = bitsArray.getArraySize();
 
     // The expected size is 8
-    EXPECT_EQ(size, 8);
+    EXPECT_EQ(size,8);
 }
 
 // Test case 0.3: Checks the correctness of getArraySize function 
@@ -43,7 +43,7 @@ TEST(BitsArrayTest, GetArraySizeTest0) {
     int size = bitsArray.getArraySize();
 
     // The expected size is 8
-    EXPECT_EQ(size, 0);
+    EXPECT_EQ(size,0);
 }
 
 

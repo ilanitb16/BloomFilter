@@ -57,3 +57,23 @@ int InputOutput::firstNum(std::string inputLine) {
     }
     return firstNumber;
 }
+
+
+//getting the "setting"- the array size and the functions
+std::string InputOutput::setSetting() {
+    std::string setting;
+    //ask for the "setting"
+    do {
+        std::getline(std::cin, setting);
+        //check that the input is valid
+    } while (invalidInput(setting));
+    return setting;
+}
+
+//getting the input line
+std::istringstream InputOutput::getCommand() {
+    std::string inputLine;
+    std::getline(std::cin, inputLine);
+    std::istringstream command(inputLine);
+    return command;
+}
