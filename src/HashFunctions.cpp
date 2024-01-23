@@ -33,3 +33,33 @@ bool HashFunctions::getHash1(){
 bool HashFunctions::getHash2(){
     return this->hash2;
 }
+
+
+//make an "array" of bits, if need to use the hash1 function,
+//do hash and fill the array by modelo of the URL
+std::vector<int> HashFunctions::hash1Function(std::string input, int arraySize) {
+    std::vector<int> bits(arraySize, 0);
+    if (this->hash1) {
+        std::hash<std::string> hasher;
+        size_t copy = hasher(input);
+        size_t value = copy % arraySize;
+        bits[value] = 1;
+    }
+    //return the array
+    return bits;
+}
+
+//make an "array" of bits, if need to use the hash2 function,
+//do hash, do it again and fill the array by modelo of the URL
+std::vector<int> HashFunctions::hash2Function(std::string input, int arraySize) {
+    std::vector<int> bits(arraySize, 0);
+    if (this->hash2) {
+        std::hash<std::string> hasher;
+        size_t copy = hasher(input);
+        //convert to string and do it again
+        copy = hasher(std::to_string(copy));
+        size_t value = copy % arraySize;
+        bits[value] = 1;
+    }
+    return bits;
+}

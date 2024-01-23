@@ -10,6 +10,7 @@ public:
     bool invalidInput(std::string inputLine);
     int firstNum(std::string inputLine);
     std::string setSetting();
+    std::istringstream getCommand();
     private:
 };
 

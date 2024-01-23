@@ -69,3 +69,11 @@ std::string InputOutput::setSetting() {
     } while (invalidInput(setting));
     return setting;
 }
+
+//getting the input line
+std::istringstream InputOutput::getCommand() {
+    std::string inputLine;
+    std::getline(std::cin, inputLine);
+    std::istringstream command(inputLine);
+    return command;
+}
