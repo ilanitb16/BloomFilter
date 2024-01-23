@@ -1,6 +1,3 @@
-//this is the BitsArray header file
-
-
 #ifndef BITSARRAY_H
 #define BITSARRAY_H
 #include <vector>
@@ -14,6 +11,12 @@ public:
     int getArraySize();
     std::vector<int> getArray();
     void addURL(std::vector<int> bitsarray, std::string URL);
+    bool blackListed(std::vector<int> bitsarray);
+    bool checkFalsePossitive(std::string checkURL);
+    void addURLToBitsArray(HashFunctions hashFunctions, std::string inputLine);
+    bool searchURLInBitArray(HashFunctions hashFunctions, std::string inputLine);
+    void bloomFilter(InputOutput inputOutput, int commandNumber, HashFunctions hashFunctions, std::string URL);
+    void commandAndURL(InputOutput inputOutput, HashFunctions hashFunctions);
     private:
     int size;            // Size of the array
     std::vector<int> array;  // Vector to store the bits

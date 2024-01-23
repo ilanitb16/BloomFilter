@@ -23,7 +23,6 @@ bool InputOutput::containsNonNumeric(std::string inputLine) {
     return false;
 }
 
-
 //checking if the input is invalid and if it doesn't set the hash functions
 bool InputOutput::invalidInput(std::string inputLine) {
     //checking if the inputLine contain only digits or a spaces
@@ -57,7 +56,6 @@ int InputOutput::firstNum(std::string inputLine) {
     }
     return firstNumber;
 }
-
 
 //getting the "setting"- the array size and the functions
 std::string InputOutput::setSetting() {
