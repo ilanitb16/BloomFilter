@@ -7,6 +7,7 @@ public:
 	InputOutput();
 	bool isDigit(char c);
 	bool containsNonNumeric(std::string str);
+    void invalidInput(std::string inputLine);
     private:
 };
 
