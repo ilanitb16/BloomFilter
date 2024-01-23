@@ -18,7 +18,7 @@ TEST(BitsArrayTest, GetArrayTest) {
 
     // Check that all elements in the array are initially set to 0
     for (int i = 0; i < 16; ++i) {
-        EXPECT_EQ(array[i],0);
+        EXPECT_EQ(array[i], 0);
     }
 }
 
@@ -31,7 +31,7 @@ TEST(BitsArrayTest, GetArraySizeTest) {
     int size = bitsArray.getArraySize();
 
     // The expected size is 8
-    EXPECT_EQ(size,8);
+    EXPECT_EQ(size, 8);
 }
 
 // Test case 0.3: Checks the correctness of getArraySize function 
@@ -43,7 +43,7 @@ TEST(BitsArrayTest, GetArraySizeTest0) {
     int size = bitsArray.getArraySize();
 
     // The expected size is 8
-    EXPECT_EQ(size,0);
+    EXPECT_EQ(size, 0);
 }
 
 
@@ -248,4 +248,48 @@ TEST(InputOutputTest, FirstNumTest4) {
 
     // Expected output: The first number is 1111 
     EXPECT_EQ(firstNumber, 1111);
+}
+
+// Test Case A: Testing setSetting function by providing valid input
+TEST(InputOutputTest, SetSettingTest1) {
+    InputOutput inputOutput;
+
+    // Create a stringstream with valid input "8 1 2"
+    std::istringstream validInput("8 1 2\n");
+
+    // Redirect std::cin to the stringstream
+    std::streambuf* originalCin = std::cin.rdbuf(validInput.rdbuf());
+
+    // Call setSetting to read the setting
+    std::string setting = inputOutput.setSetting();
+
+    // Restore std::cin to its original state
+    std::cin.rdbuf(originalCin);
+
+    // Expected output: The setting is "8 1 2"
+    EXPECT_EQ(setting, "8 1 2");
+}
+
+// Test Case 1: Testing getCommand function by providing valid input
+TEST(InputOutputTest, GetCommandTest1) {
+    InputOutput inputOutput;
+
+    // Create a stringstream with valid input "2 www.example.com0"
+    std::istringstream validInput("2 www.example.com0\n");
+
+    // Redirect std::cin to the stringstream
+    std::streambuf* originalCin = std::cin.rdbuf(validInput.rdbuf());
+
+    // Call getCommand to read the command
+    std::istringstream command = inputOutput.getCommand();
+
+    // Restore std::cin to its original state
+    std::cin.rdbuf(originalCin);
+
+    // Read the command from the stringstream
+    std::string commandText;
+    command >> commandText;
+
+    // Expected output: The command is "2 www.example.com0"
+    EXPECT_EQ(commandText, "2");
 }
