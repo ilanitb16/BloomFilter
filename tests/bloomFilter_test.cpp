@@ -270,3 +270,112 @@ TEST(InputOutputTest, SetSettingTest1) {
     EXPECT_EQ(setting, "8 1 2");
 }
 
+// Test Case 1: Testing getCommand function by providing valid input
+TEST(InputOutputTest, GetCommandTest1) {
+    InputOutput inputOutput;
+
+    // Create a stringstream with valid input "2 www.example.com0"
+    std::istringstream validInput("2 www.example.com0\n");
+
+    // Redirect std::cin to the stringstream
+    std::streambuf* originalCin = std::cin.rdbuf(validInput.rdbuf());
+
+    // Call getCommand to read the command
+    std::istringstream command = inputOutput.getCommand();
+
+    // Restore std::cin to its original state
+    std::cin.rdbuf(originalCin);
+
+    // Read the command from the stringstream
+    std::string commandText;
+    command >> commandText;
+
+    // Expected output: The command ips "2 www.example.com0"
+    EXPECT_EQ(commandText, "2");
+}
+
+
+//HashFunctions
+
+// Constructor Tests
+TEST(HashFunctionsTest, ConstructorTest1) {
+    // Test the constructor with "1"
+    HashFunctions hashFunctions("1");
+
+    // Expected output: hash1 should be true, hash2 should be false, 1 is the array size
+    EXPECT_FALSE(hashFunctions.getHash1());
+    EXPECT_FALSE(hashFunctions.getHash2());
+}
+
+TEST(HashFunctionsTest, ConstructorTest2) {
+    // Test the constructor with "2"
+    HashFunctions hashFunctions("2");
+
+    // Expected output: hash1 should be false, hash2 should be true, 2 is the array size
+    EXPECT_FALSE(hashFunctions.getHash1());
+    EXPECT_FALSE(hashFunctions.getHash2());
+}
+
+// Additional Constructor Tests
+TEST(HashFunctionsTest, ConstructorTest3) {
+    // Test the constructor with "1 2"
+    HashFunctions hashFunctions("3 1 2");
+
+    // Expected output: hash1 should be true, hash2 should be true, 3 is the array size
+    EXPECT_TRUE(hashFunctions.getHash1());
+    EXPECT_TRUE(hashFunctions.getHash2());
+}
+
+TEST(HashFunctionsTest, ConstructorTest4) {
+    // Test the constructor with an empty string
+    HashFunctions hashFunctions("");
+
+    // Expected output: hash1 should be false, hash2 should be false, 0 is the array size
+    EXPECT_FALSE(hashFunctions.getHash1());
+    EXPECT_FALSE(hashFunctions.getHash2());
+}
+
+TEST(HashFunctionsTest, ConstructorTest5) {
+    // Test the constructor with "3" (an invalid number)
+    HashFunctions hashFunctions("3");
+
+    // Expected output: hash1 should be false, hash2 should be false, 3 is the array size
+    EXPECT_FALSE(hashFunctions.getHash1());
+    EXPECT_FALSE(hashFunctions.getHash2());
+}
+
+TEST(HashFunctionsTest, ConstructorTest6) {
+    // Test the constructor with "12 1" 
+    HashFunctions hashFunctions("12 1");
+
+    // Expected output: hash1 should be true, hash2 should be false, 12 is the array size
+    EXPECT_TRUE(hashFunctions.getHash1());
+    EXPECT_FALSE(hashFunctions.getHash2());
+}
+
+TEST(HashFunctionsTest, ConstructorTest7) {
+    // Test the constructor with "34 2 1" 
+    HashFunctions hashFunctions("34 2 1");
+
+    // Expected output: hash1 should be true, hash2 should be true, 34 is the array size
+    EXPECT_TRUE(hashFunctions.getHash1());
+    EXPECT_TRUE(hashFunctions.getHash2());
+}
+
+TEST(HashFunctionsTest, ConstructorTest8) {
+    // Test the constructor with "3" (an invalid number)
+    HashFunctions hashFunctions("34 1 1 1 1 2 1");
+
+    // Expected output: hash1 should be true, hash2 should be true, 34 is the array size
+    EXPECT_TRUE(hashFunctions.getHash1());
+    EXPECT_TRUE(hashFunctions.getHash2());
+}
+
+TEST(HashFunctionsTest, ConstructorTest9) {
+    // Test the constructor with "142 2" 
+    HashFunctions hashFunctions("142 2");
+
+    // Expected output: hash1 should be true, hash2 should be false, 142 is the array size
+    EXPECT_FALSE(hashFunctions.getHash1());
+    EXPECT_TRUE(hashFunctions.getHash2());
+}
