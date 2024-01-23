@@ -195,3 +195,54 @@ TEST(InputOutputTest, invalidInputTEST8) {
     // Expected output: The string is valid
     EXPECT_TRUE(validSetting);
 }
+
+
+
+
+// Test Case 1: Testing firstNum function with a valid input line
+TEST(InputOutputTest, FirstNumTest1) {
+    InputOutput inputOutput;
+    std::string inputLine = "8 1 2";
+
+    // Get the first number from the input line
+    int firstNumber = inputOutput.firstNum(inputLine);
+
+    // Expected output: The first number is 8
+    EXPECT_EQ(firstNumber, 8);
+}
+
+// Test Case 2: Testing firstNum function with an invalid input line
+TEST(InputOutputTest, FirstNumTest2) {
+    InputOutput inputOutput;
+    std::string inputLine = "Invalid Input";
+
+    // Get the first number from the input line
+    int firstNumber = inputOutput.firstNum(inputLine);
+
+    // Expected output: The first number is 0 (indicating invalid input)
+    EXPECT_EQ(firstNumber, 0);
+}
+
+// Test Case 3: Testing firstNum function with an invalid input line
+TEST(InputOutputTest, FirstNumTest3) {
+    InputOutput inputOutput;
+    std::string inputLine = "0";
+
+    // Get the first number from the input line
+    int firstNumber = inputOutput.firstNum(inputLine);
+
+    // Expected output: The first number is 0 (indicating invalid input)
+    EXPECT_EQ(firstNumber, 0);
+}
+
+// Test Case 4: Testing firstNum function with a valid input line
+TEST(InputOutputTest, FirstNumTest4) {
+    InputOutput inputOutput;
+    std::string inputLine = "1111 524 245";
+
+    // Get the first number from the input line
+    int firstNumber = inputOutput.firstNum(inputLine);
+
+    // Expected output: The first number is 1111 
+    EXPECT_EQ(firstNumber, 1111);
+}
