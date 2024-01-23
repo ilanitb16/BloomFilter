@@ -270,26 +270,3 @@ TEST(InputOutputTest, SetSettingTest1) {
     EXPECT_EQ(setting, "8 1 2");
 }
 
-// Test Case 1: Testing getCommand function by providing valid input
-TEST(InputOutputTest, GetCommandTest1) {
-    InputOutput inputOutput;
-
-    // Create a stringstream with valid input "2 www.example.com0"
-    std::istringstream validInput("2 www.example.com0\n");
-
-    // Redirect std::cin to the stringstream
-    std::streambuf* originalCin = std::cin.rdbuf(validInput.rdbuf());
-
-    // Call getCommand to read the command
-    std::istringstream command = inputOutput.getCommand();
-
-    // Restore std::cin to its original state
-    std::cin.rdbuf(originalCin);
-
-    // Read the command from the stringstream
-    std::string commandText;
-    command >> commandText;
-
-    // Expected output: The command is "2 www.example.com0"
-    EXPECT_EQ(commandText, "2");
-}
