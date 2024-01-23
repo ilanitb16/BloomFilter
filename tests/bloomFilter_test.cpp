@@ -1,4 +1,7 @@
 #include <gtest/gtest.h>
+#include "BitsArray.cpp"
+#include "InputOutput.cpp"
+#include "HashFunctions.cpp"
 
 //BitsArray tests
 
@@ -15,7 +18,7 @@ TEST(BitsArrayTest, GetArrayTest) {
 
     // Check that all elements in the array are initially set to 0
     for (int i = 0; i < 16; ++i) {
-        EXPECT_EQ(array[i], 0);
+        EXPECT_EQ(array[i],0);
     }
 }
 
@@ -28,7 +31,7 @@ TEST(BitsArrayTest, GetArraySizeTest) {
     int size = bitsArray.getArraySize();
 
     // The expected size is 8
-    EXPECT_EQ(size, 8);
+    EXPECT_EQ(size,8);
 }
 
 // Test case 0.3: Checks the correctness of getArraySize function 
@@ -40,7 +43,7 @@ TEST(BitsArrayTest, GetArraySizeTest0) {
     int size = bitsArray.getArraySize();
 
     // The expected size is 8
-    EXPECT_EQ(size, 0);
+    EXPECT_EQ(size,0);
 }
 
 
