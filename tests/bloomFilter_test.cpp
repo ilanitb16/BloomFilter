@@ -269,8 +269,53 @@ TEST(InputOutputTest, SetSettingTest1) {
     // Expected output: The setting is "8 1 2"
     EXPECT_EQ(setting, "8 1 2");
 }
+// Test Case 1: Testing getCommand function by providing valid input
+TEST(InputOutputTest, GetCommandTest1) {
+    InputOutput inputOutput;
 
+    // Create a stringstream with valid input "2 www.example.com0"
+    std::istringstream validInput("2 www.example.com0\n");
 
+    // Redirect std::cin to the stringstream
+    std::streambuf* originalCin = std::cin.rdbuf(validInput.rdbuf());
+
+    // Call getCommand to read the command
+    std::istringstream command = inputOutput.getCommand();
+
+    // Restore std::cin to its original state
+    std::cin.rdbuf(originalCin);
+
+    // Read the command from the stringstream
+    std::string commandText;
+    command >> commandText;
+
+    // Expected output: The command is "2 www.example.com0"
+    EXPECT_EQ(commandText, "2");
+}
+
+// Test Case 1: Testing getCommand function by providing valid input
+TEST(InputOutputTest, GetCommandTest1) {
+    InputOutput inputOutput;
+
+    // Create a stringstream with valid input "2 www.example.com0"
+    std::istringstream validInput("2 www.example.com0\n");
+
+    // Redirect std::cin to the stringstream
+    std::streambuf* originalCin = std::cin.rdbuf(validInput.rdbuf());
+
+    // Call getCommand to read the command
+    std::istringstream command = inputOutput.getCommand();
+
+    // Restore std::cin to its original state
+    std::cin.rdbuf(originalCin);
+
+    // Read the command from the stringstream
+    std::string commandText;
+    command >> commandText;
+
+    // Expected output: The command ips "2 www.example.com0"
+    EXPECT_EQ(commandText, "2");
+}
 
 
 //HashFunctions
@@ -356,4 +401,103 @@ TEST(HashFunctionsTest, ConstructorTest9) {
     // Expected output: hash1 should be true, hash2 should be false, 142 is the array size
     EXPECT_FALSE(hashFunctions.getHash1());
     EXPECT_TRUE(hashFunctions.getHash2());
+}
+
+
+
+
+
+
+
+
+
+// hash1Function Tests
+TEST(HashFunctionsTest, Hash1FunctionTest1) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com0";
+    HashFunctions hashFunctions("8 1");
+    std::vector<int> result = hashFunctions.hash1Function(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 3 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash1
+    EXPECT_TRUE(check);
+}
+
+TEST(HashFunctionsTest, Hash1FunctionTest2) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com1";
+    HashFunctions hashFunctions("8 1");
+    std::vector<int> result = hashFunctions.hash1Function(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 3 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash1
+    EXPECT_TRUE(check);
+}
+
+TEST(HashFunctionsTest, Hash1FunctionTest3) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com11";
+    HashFunctions hashFunctions("8 1");
+    std::vector<int> result = hashFunctions.hash1Function(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 3 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash1
+    EXPECT_TRUE(check);
+}
+
+
+
+
+
+// hash2Function Tests
+TEST(HashFunctionsTest, Hash2FunctionTest1) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com0";
+    HashFunctions hashFunctions("8 2");
+    std::vector<int> result = hashFunctions.hash1Function(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 2 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash2
+    EXPECT_TRUE(check);
+}
+
+TEST(HashFunctionsTest, Hash2FunctionTest2) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com0";
+    HashFunctions hashFunctions("8 2");
+    std::vector<int> result = hashFunctions.hash1Function(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 2 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash2
+    EXPECT_TRUE(check);
 }
