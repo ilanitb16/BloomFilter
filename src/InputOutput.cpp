@@ -46,3 +46,14 @@ bool InputOutput::invalidInput(std::string inputLine) {
     return !nonFunctions;
 }
 
+//getting the first number in the first input- the array size
+int InputOutput::firstNum(std::string inputLine) {
+    int firstNumber = 0;
+    std::size_t i = 0;
+   //we already knoe that the input is valid, here we get the first number char by char
+    while (i < inputLine.length() && this->isDigit(inputLine[i])) {
+        firstNumber = firstNumber * 10 + (inputLine[i] - '0');
+        ++i;
+    }
+    return firstNumber;
+}
