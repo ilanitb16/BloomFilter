@@ -75,3 +75,22 @@ std::istringstream InputOutput::getCommand() {
     std::istringstream command(inputLine);
     return command;
 }
+
+
+//printing the true/ false/ true true/ true false according to the conditions
+void InputOutput::printMassege(bool blacklist, bool falsePosittive) {
+    //if the URL is in the array by hash
+    if (blacklist) {
+        std::cout << "true ";
+        //if the URL is in the array by value (in the list)
+        if (falsePosittive) {
+            std::cout << "true" << std::endl;
+        }
+        else {
+            std::cout << "false" << std::endl;
+        }
+    }
+    else {
+         std::cout << "false" << std::endl;
+    }
+}

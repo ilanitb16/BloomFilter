@@ -82,6 +82,8 @@ void BitsArray::bloomFilter(InputOutput inputOutput, int commandNumber, HashFunc
         bool blackList = this->searchURLInBitArray(hashFunctions, URL);
         //checking if the URL is in the black listed URL
         bool falsePossitive = this->checkFalsePossitive(URL);
+        //print the massege according to the results
+        inputOutput.printMassege(blackList, falsePossitive);
     }
 }
 

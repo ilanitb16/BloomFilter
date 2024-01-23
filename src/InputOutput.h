@@ -12,6 +12,7 @@ public:
     int firstNum(std::string inputLine);
     std::string setSetting();
     std::istringstream getCommand();
+    void printMassege(bool blacklist, bool falsePosittive);
     private:
 };
 
