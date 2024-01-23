@@ -478,3 +478,76 @@ TEST(HashFunctionsTest, Hash2FunctionTest2) {
     // Expected output: All zeros except at the position determined by hash2
     EXPECT_TRUE(check);
 }
+
+
+
+
+// mix Tests
+TEST(HashFunctionsTest, mixArray1) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com0";
+    HashFunctions hashFunctions("8 1 2");
+    std::vector<int> result = hashFunctions.mixHashArray(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 2 && i != 3 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash1 and hash2
+    EXPECT_TRUE(check);
+}
+
+TEST(HashFunctionsTest, mixArray2) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com1";
+    HashFunctions hashFunctions("8 1 2");
+    std::vector<int> result = hashFunctions.mixHashArray(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 2 && i != 3 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash1 and hash2
+    EXPECT_FALSE(check);
+}
+
+TEST(HashFunctionsTest, mixArray3kjjihug) {
+    // Test hash1Function with hash1 set to true
+    int arraySize = 8;
+    std::string input = "www.example.com11";
+    HashFunctions hashFunctions("8 1 2");
+    std::vector<int> result = hashFunctions.mixHashArray(input, arraySize);
+
+    bool check = true;
+    for(int i = 0; i < arraySize; i++){
+        if (i != 2 && i != 3 && result[i] == 1){
+            check = false;
+        }
+    }
+    // Expected output: All zeros except at the position determined by hash1 and hash2
+    EXPECT_TRUE(check);
+}
+
+// Test if the URL that has been added can be found in the array
+TEST(BitsArrayTest, SearchURLInBitArrayTest000) {
+    // Create a BitsArray with size 32
+    BitsArray bitsArray(32);
+
+    // Create HashFunctions instance with hash function number two
+    HashFunctions hashFunctions("32 1 2");
+
+    // Add "www.example.com0" to the BitsArray
+    bitsArray.addURLToBitsArray(hashFunctions, "www.example.com0");
+
+    // Search for "www.example.com0" in the BitsArray
+    bool blackListed = bitsArray.searchURLInBitArray(hashFunctions, "www.example.com0");
+
+    // Expected output: The URL should be blacklisted
+    EXPECT_TRUE(blackListed);
+}
