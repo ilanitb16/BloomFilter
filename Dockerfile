@@ -1,5 +1,5 @@
 FROM gcc:latest
-WORKDIR /src
-COPY . /src
-RUN g++ -o Main Main.cpp BitsArray.cpp
+WORKDIR /app
+COPY src /app/src
+RUN g++ -o Main src/Main.cpp src/BitsArray.cpp
 CMD ["./Main"]
