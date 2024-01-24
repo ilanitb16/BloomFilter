@@ -3,9 +3,6 @@ FROM gcc:latest
 
 # Copy the source code to the container
 COPY ./src/Main ./src/Main.cpp
-COPY ./src/BitsArray ./src/BitsArray.cpp
-COPY ./src/InputOutput ./src/InputOutput.cpp
-COPY ./src/HashFunction ./src/HashFunction.cpp
 COPY ./src/BitsArray ./src/BitsArray.h
 COPY ./src/InputOutput ./src/InputOutput.h
 COPY ./src/HashFunction ./src/HashFunction.h
