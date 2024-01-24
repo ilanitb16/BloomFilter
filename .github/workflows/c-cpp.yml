@@ -22,7 +22,7 @@ jobs:
       run: cmake -B build
     - name: make
       run: cmake --build build
-    - name: Build and run tests
+    - name: Build + run tests
       run: |
         cd build
         ctest
