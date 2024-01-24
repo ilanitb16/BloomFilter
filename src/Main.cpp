@@ -1,7 +1,7 @@
 #include <vector>
-#include "BitsArray.cpp"
-#include "HashFunctions.cpp"
-#include "InputOutput.cpp"
+#include "BitsArray.h"
+#include "HashFunctions.h"
+#include "InputOutput.h"
 
 int main()
 {
