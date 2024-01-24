@@ -1,10 +1,11 @@
 FROM gcc:latest
 WORKDIR /app
 
+# Copy source files
 COPY src /app/src
-COPY InputOutput src/InputOutput.h
-COPY HashFunction src/HashFunction.h
-COPY BitsArray src/BitsArray.h
 
-RUN g++ -o Main src/Main.cpp src/BitsArray.cpp src/InputOutput.cpp src/HashFunction.cpp
+# Compile the C++ files
+RUN g++ -o Main /app/src/Main.cpp /app/src/BitsArray.cpp /app/src/InputOutput.cpp /app/src/HashFunction.cpp
+
+# Set the default command to run the compiled executable
 CMD ["./Main"]
