@@ -13,6 +13,8 @@ COPY ./src/BitsArray.h ./src/
 COPY ./src/InputOutput.h ./src/
 COPY ./src/HashFunctions.h ./src/
 
+RUN apt-get update && \
+    apt-get install -y libstdc++6
 # Compile the C++ files
 RUN g++ -o Main ./src/Main.cpp ./src/BitsArray.cpp ./src/InputOutput.cpp ./src/HashFunctions.cpp
 
