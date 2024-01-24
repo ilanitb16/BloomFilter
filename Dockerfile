@@ -1,6 +1,8 @@
 # Use an official GCC image as the base image
 FROM gcc:latest
 
+WORKDIR /src
+
 # Copy the source code to the container
 COPY src /src
 
