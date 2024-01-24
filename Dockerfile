@@ -1,11 +1,14 @@
+# Use an official image of a C++ compiler
 FROM gcc:latest
-WORKDIR /app
 
-# Copy source files
-COPY src /app/src
+# Set the working directory inside the container
+WORKDIR /src
 
-# Compile the C++ files
-RUN g++ -o Main /app/src/Main.cpp /app/src/InputOutput.cpp /app/src/HashFunction.cpp /app/src/BitsArray.cpp
+# Copy the entire project to the container
+COPY . /src/
 
-# Set the default command to run the compiled executable
-CMD ["./Main"]
+# Compile the C++ code
+RUN g++ -o main Main.cpp BitsArray.cpp HashFunctions.cpp InputOutput.cpp
+
+# Set the entry point for the container
+CMD ["./main"]
