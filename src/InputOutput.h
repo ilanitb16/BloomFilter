@@ -1,6 +1,7 @@
 #ifndef INPUTOUTPUT_H
 #define INPUTOUTPUT_H
-
+#include <string>
+#include <sstream>
 class InputOutput {
 public:
 	InputOutput();
