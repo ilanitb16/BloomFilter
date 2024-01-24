@@ -2,7 +2,6 @@
 #define HASHFUNCTIONS_H
 #include <vector>
 #include <string>
-#include "HashFunctions.h"
 class HashFunctions {
 public:
     HashFunctions(std::string setting);
