@@ -14,7 +14,7 @@ COPY ./src/InputOutput.h ./src/
 COPY ./src/HashFunctions.h ./src/
 
 # Compile the C++ files
-RUN g++ -o ./src/Main ./src/Main.cpp ./src/BitsArray.cpp ./src/InputOutput.cpp ./src/HashFunctions.cpp
+RUN g++ -o Main ./src/Main.cpp ./src/BitsArray.cpp ./src/InputOutput.cpp ./src/HashFunctions.cpp
 
 # Set the default command to run the compiled executable
-CMD ["./src/Main"]
+CMD ["./Main"]
