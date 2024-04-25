@@ -15,8 +15,8 @@ public:
     bool checkFalsePossitive(std::string checkURL);
     void addURLToBitsArray(HashFunctions hashFunctions, std::string inputLine);
     bool searchURLInBitArray(HashFunctions hashFunctions, std::string inputLine);
-    void bloomFilter(InputOutput inputOutput, int commandNumber, HashFunctions hashFunctions, std::string URL);
-    void commandAndURL(InputOutput inputOutput, HashFunctions hashFunctions);
+    bool bloomFilter(InputOutput inputOutput, int commandNumber, HashFunctions hashFunctions, std::string URL);
+    bool commandAndURL(InputOutput inputOutput, HashFunctions hashFunctions, std::string input);
     private:
     int size;            // Size of the array
     std::vector<int> array;  // Vector to store the bits
