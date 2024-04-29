@@ -71,7 +71,7 @@ bool BitsArray::searchURLInBitArray(HashFunctions hashFunctions, std::string inp
 
 
 //checks what to do, insert or search and do it
-void BitsArray::bloomFilter(InputOutput inputOutput, int commandNumber, HashFunctions hashFunctions, std::string URL) {
+bool BitsArray::bloomFilter(InputOutput inputOutput, int commandNumber, HashFunctions hashFunctions, std::string URL) {
     //if need to add URL
     if (commandNumber == 1) {
         this->addURLToBitsArray(hashFunctions, URL);
@@ -83,22 +83,24 @@ void BitsArray::bloomFilter(InputOutput inputOutput, int commandNumber, HashFunc
         //checking if the URL is in the black listed URL
         bool falsePossitive = this->checkFalsePossitive(URL);
         //print the massege according to the results
-        inputOutput.printMassege(blackList, falsePossitive);
+        return inputOutput.printMassege(blackList, falsePossitive);
     }
+    //done an insertion, we don't care about the return
+    return false;
 }
 
 //run the code forever, getting the URL with a number and doing the bloom filter
-void BitsArray::commandAndURL(InputOutput inputOutput, HashFunctions hashFunctions) {
-    while(true){
+bool BitsArray::commandAndURL(InputOutput inputOutput, HashFunctions hashFunctions, std::string input) {
         //getting input
-        std::istringstream command = inputOutput.getCommand();
+        std::istringstream command(input);
         int commandNumber;
         std::string URL;
         // take the number and the URL if valid
         command >> commandNumber >> URL;
         if (command) {
             //bloom filter
-            this->bloomFilter(inputOutput, commandNumber, hashFunctions, URL);    
+            return this->bloomFilter(inputOutput, commandNumber, hashFunctions, URL);    
         }
-    }
+        //if invalid return false
+        return false;
 }
