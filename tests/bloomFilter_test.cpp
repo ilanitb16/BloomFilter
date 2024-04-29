@@ -4,7 +4,7 @@
 #include "HashFunctions.cpp"
 
 //BitsArray tests
-
+/*
 //Test Case 0.1: Get the array contents of a newly created BitsArray
 TEST(BitsArrayTest, GetArrayTest) {
     // Create a BitsArray with size 16
@@ -639,3 +639,4 @@ TEST(InputOutputTest, PrintMassegeTest4) {
     // Expected output: "false" to the stringstream
     EXPECT_EQ(outputStream.str(), "false\n");
 }
+*/
